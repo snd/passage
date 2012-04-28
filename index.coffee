@@ -6,7 +6,7 @@ run = (req, res, next, [first, rest...]) ->
 
     nextNext = -> run req, res, next, rest
 
-    return nextNext() if not (first.method in [req.method, 'all'])
+    return nextNext() if not (first.method in [req.method.toLowerCase(), 'all'])
 
     params = first.pattern.match req.url
 

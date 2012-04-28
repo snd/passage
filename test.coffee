@@ -13,6 +13,12 @@ module.exports =
         router.get '/foo', (req, res) -> test.done()
         router.middleware {url: '/foo', method: 'get'}, {}, -> test.fail()
 
+    'router calls handler for get route with uppercase method': (test) ->
+
+        router = new Router
+        router.get '/foo', (req, res) -> test.done()
+        router.middleware {url: '/foo', method: 'GET'}, {}, -> test.fail()
+
     'router calls all handler for get route': (test) ->
 
         router = new Router
