@@ -2,7 +2,7 @@
     "name": "router",
     "description": "a lightweight router middleware",
     "author": "Maximilian Krüger <kruemaxi@googlemail.com> (http://github.com/snd)",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "repository": {
         "type": "git",
         "url": "git://github.com/snd/router.git"
