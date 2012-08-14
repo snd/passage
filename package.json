@@ -1,15 +1,16 @@
 {
-    "name": "router",
-    "description": "a lightweight router middleware",
+    "name": "passage",
+    "description": "lightweight request router",
     "author": "Maximilian Krüger <kruemaxi@googlemail.com> (http://github.com/snd)",
     "version": "0.1.1",
     "repository": {
         "type": "git",
-        "url": "git://github.com/snd/router.git"
+        "url": "git://github.com/snd/passage.git"
     },
     "dependencies": {
-        "underscore": "*",
-        "url-pattern": "git://github.com/snd/url-pattern.git"
+        "underscore": "1.3.3",
+        "url-pattern": "0.1.0",
+        "sequenz": "1.0.4"
     },
     "devDependencies": {
         "nodeunit": "*"
