@@ -1,5 +1,6 @@
 _ = require 'underscore'
 Pattern = require 'url-pattern'
+sequenz = require 'sequenz'
 
 run = (req, res, next, [first, rest...]) ->
     return next() if not first?
@@ -20,12 +21,12 @@ Router = class
     constructor: -> @routes = []
     middleware: (req, res, next = ->) => run req, res, next, @routes
 
-_.each 'all get post put delete'.split(' '), (method) ->
-    Router.prototype[method] = (pattern, middleware) ->
+['all', 'get', 'post', 'put', 'delete'].forEach (method) ->
+    Router.prototype[method] = (pattern, middleware...) ->
         @routes.push {
             method: method
             pattern: new Pattern pattern
-            middleware: middleware
+            middleware: sequenz middleware
         }
 
 module.exports = Router
