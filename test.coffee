@@ -31,12 +31,6 @@ module.exports =
         router.post '/foo', (req, res) -> test.fail()
         router.middleware {url: '/foo', method: 'get'}, {}, -> test.done()
 
-    'router does not call post handler for get route': (test) ->
-
-        router = new Router
-        router.post '/foo', (req, res) -> test.fail()
-        router.middleware {url: '/foo', method: 'get'}, {}, -> test.done()
-
     'router adds correct params to req': (test) ->
 
         router = new Router
