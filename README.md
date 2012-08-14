@@ -1,16 +1,16 @@
 # router
 
-a lightweight router middleware
+lightweight request router
 
-## Installation
+### Install
 
 ```
-npm install git://github.com/snd/router.git
+npm install passage
 ```
 
-## Usage
+### Use
 
-### Make a router
+#### Make a router
 
 ```coffeescript
 Router = require 'router'
@@ -18,7 +18,7 @@ Router = require 'router'
 router = new Router
 ```
 
-### Define some routes
+#### Define some routes
 
 see [url-pattern](https://github.com/snd/url-pattern) for supported url patterns.
 
@@ -44,7 +44,7 @@ router.delete '/users/:id', (req, res, next) ->
     # called for example on DELETE /users/18 - req.params will then be {id: 18}
 ```
 
-### Use the middleware
+#### Use the middleware
 
 ```coffeescript
 http = require 'http'
@@ -54,6 +54,4 @@ server = http.createServer router.middleware
 server.listen 80
 ```
 
-## License
-
-router is released under the MIT License (see LICENSE for details).
+### License: MIT
