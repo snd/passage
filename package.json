@@ -5,7 +5,7 @@
     "version": "0.1.2",
     "repository": {
         "type": "git",
-        "url": "git://github.com/snd/passage.git"
+        "url": "git://github.com/snd/node-passage.git"
     },
     "dependencies": {
         "underscore": "1.3.3",
