@@ -1,4 +1,4 @@
-# router
+# passage
 
 lightweight request router
 
@@ -13,9 +13,9 @@ npm install passage
 #### Make a router
 
 ```coffeescript
-Router = require 'router'
+Passage = require 'Passage'
 
-router = new Router
+router = new Passage
 ```
 
 #### Define some routes
