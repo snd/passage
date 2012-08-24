@@ -7,11 +7,22 @@ module.exports =
         router = new Router
         router.middleware {url: '/foo', method: 'get'}, {}, -> test.done()
 
+    'head is the same as get': (test) ->
+
+        router = new Router
+        router.middleware {url: '/foo', method: 'get'}, {}, -> test.done()
+
     'router calls handler for get route': (test) ->
 
         router = new Router
         router.get '/foo', (req, res) -> test.done()
         router.middleware {url: '/foo', method: 'get'}, {}, -> test.fail()
+
+    'router ignores query part of url': (test) ->
+
+        router = new Router
+        router.get '/foo', (req, res) -> test.done()
+        router.middleware {url: '/foo?foo=bar', method: 'get'}, {}, -> test.fail()
 
     'router calls handler for get route with uppercase method': (test) ->
 

@@ -9,7 +9,7 @@ run = (req, res, next, [first, rest...]) ->
 
     return nextNext() if not (first.method in [req.method.toLowerCase(), 'all'])
 
-    params = first.pattern.match req.url
+    params = first.pattern.match req.url.split('?')[0]
 
     return nextNext() if not params?
 
