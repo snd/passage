@@ -1,6 +1,6 @@
 {
     "name": "passage",
-    "description": "lightweight request router",
+    "description": "passage is a request router",
     "author": "Maximilian Krüger <kruemaxi@googlemail.com> (http://github.com/snd)",
     "version": "0.1.5",
     "repository": {
