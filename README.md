@@ -1,16 +1,17 @@
 # passage
 
-lightweight request router
+passage is a request router for nodejs
+[![Build Status](https://travis-ci.org/snd/passage.png)](https://travis-ci.org/snd/passage)
 
-### Install
+### install
 
 ```
 npm install passage
 ```
 
-### Use
+### use
 
-#### Make a router
+##### create a router
 
 ```coffeescript
 Passage = require 'Passage'
@@ -18,7 +19,7 @@ Passage = require 'Passage'
 router = new Passage
 ```
 
-#### Define some routes
+##### define routes
 
 see [url-pattern](https://github.com/snd/url-pattern) for supported url patterns.
 
@@ -44,7 +45,7 @@ router.delete '/users/:id', (req, res, next) ->
     # called for example on DELETE /users/18 - req.params will then be {id: 18}
 ```
 
-#### Use the middleware
+##### use the middleware
 
 ```coffeescript
 http = require 'http'
@@ -54,4 +55,4 @@ server = http.createServer router.middleware
 server.listen 80
 ```
 
-### License: MIT
+### license: MIT
