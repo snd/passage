@@ -13,6 +13,6 @@
         "sequenz": "1.0.5"
     },
     "devDependencies": {
-        "nodeunit": "0.7.5"
+        "nodeunit": "0.7.4"
     }
 }
