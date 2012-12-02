@@ -14,7 +14,7 @@ npm install passage
 ##### create a router
 
 ```coffeescript
-Passage = require 'Passage'
+Passage = require 'passage'
 
 router = new Passage
 ```
