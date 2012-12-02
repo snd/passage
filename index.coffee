@@ -3,7 +3,7 @@ Pattern = require 'url-pattern'
 sequenz = require 'sequenz'
 
 run = (req, res, next, [first, rest...]) ->
-    return next() if not first?
+    return next() unless first?
 
     nextNext = -> run req, res, next, rest
 
@@ -12,11 +12,9 @@ run = (req, res, next, [first, rest...]) ->
     unless method is first.method or first.method is 'all' or first.method is 'get' and method is 'head'
         return nextNext()
 
-    url = req.url.split('?')[0]
+    params = first.pattern.match req.url.split('?')[0]
 
-    params = first.pattern.match url
-
-    return nextNext() if not params?
+    return nextNext() unless params?
 
     req.params = params
 
