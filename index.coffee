@@ -7,7 +7,10 @@ run = (req, res, next, [first, rest...]) ->
 
     nextNext = -> run req, res, next, rest
 
-    return nextNext() if not (first.method in [req.method.toLowerCase(), 'all'])
+    method = req.method.toLowerCase()
+
+    unless method is first.method or first.method is 'all' or first.method is 'get' and method is 'head'
+        return nextNext()
 
     url = req.url.split('?')[0]
 
