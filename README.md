@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/snd/passage.png)](https://travis-ci.org/snd/passage)
 
-passage is a request router for nodejs
+passage is a simple router middleware for nodejs
 
 ### install
 
@@ -28,22 +28,24 @@ the params extracted from the url will be available as `req.params`.
 
 ```coffeescript
 
-# called before every following route
+# called before all following routes
 router.all '*', (req, res, next) -> next()
 
 # called only on GET /
 router.get '/', (req, res, next) -> res.end 'hello'
 
-# called before every following route if the request url starts with /users
+# called before all following routes if the request url starts with /users
 router.all '/users*', (req, res, next) -> next()
 
-router.post '/users', (req, res, next) -> res.end 'posted'
+router.post '/users', (req, res, next) -> res.end 'post'
 
 router.put '/users/:id', (req, res, next) ->
-    # called for example on PUT /users/7 - req.params will then be {id: 7}
+    # called on PUT /users/7 for example. req.params will then be {id: 7}
+    res.end 'put ' + req.params.id
 
 router.delete '/users/:id', (req, res, next) ->
-    # called for example on DELETE /users/18 - req.params will then be {id: 18}
+    # called on DELETE /users/18 for example. req.params will then be {id: 18}
+    res.end 'delete ' + req.params.id
 ```
 
 ##### use the middleware
