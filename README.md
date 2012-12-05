@@ -1,7 +1,8 @@
 # passage
 
-passage is a request router for nodejs
 [![Build Status](https://travis-ci.org/snd/passage.png)](https://travis-ci.org/snd/passage)
+
+passage is a request router for nodejs
 
 ### install
 
