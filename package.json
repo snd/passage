@@ -1,6 +1,6 @@
 {
     "name": "passage",
-    "version": "0.1.5",
+    "version": "0.2.0",
     "description": "passage is a simple router middleware for nodejs",
     "homepage": "http://github.com/snd/passage",
     "author": {
