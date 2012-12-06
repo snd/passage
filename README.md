@@ -22,9 +22,6 @@ router = new Passage
 
 ##### define routes
 
-see [url-pattern](https://github.com/snd/url-pattern) for supported url patterns.
-
-the params extracted from the url will be available as `req.params`.
 
 ```coffeescript
 
@@ -47,6 +44,9 @@ router.delete '/users/:id', (req, res, next) ->
     # called on DELETE /users/18 for example. req.params will then be {id: 18}
     res.end 'delete ' + req.params.id
 ```
+
+see [url-pattern](https://github.com/snd/url-pattern) for supported url patterns.
+the params extracted from the url will be available as `req.params`.
 
 ##### use the middleware
 
