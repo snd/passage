@@ -1,5 +1,4 @@
-_ = require 'underscore'
-Pattern = require 'url-pattern'
+newPattern = require 'url-pattern'
 sequenz = require 'sequenz'
 
 run = (req, res, next, [first, rest...]) ->
@@ -28,7 +27,7 @@ Router = class
     Router.prototype[method] = (pattern, middleware...) ->
         @routes.push {
             method: method
-            pattern: new Pattern pattern
+            pattern: newPattern pattern
             middleware: sequenz middleware
         }
 
