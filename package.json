@@ -1,6 +1,6 @@
 {
     "name": "passage",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "passage is a simple router middleware for nodejs",
     "homepage": "http://github.com/snd/passage",
     "author": {
@@ -26,7 +26,7 @@
     "dependencies": {
         "coffee-script": "1.4.0",
         "url-pattern": "0.2.0",
-        "sequenz": "1.0.5"
+        "sequenz": "1.0.6"
     },
     "devDependencies": {
         "nodeunit": "0.7.4"
