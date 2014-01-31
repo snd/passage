@@ -1,7 +1,7 @@
 {
     "name": "passage",
     "version": "1.0.0",
-    "description": "passage is a simple router middleware for nodejs",
+    "description": "passage is simple composable routing using middlewares for nodejs",
     "keywords": ["connect", "middleware", "router"],
     "homepage": "http://github.com/snd/passage",
     "author": {
