@@ -1,6 +1,6 @@
 {
     "name": "passage",
-    "version": "0.2.1",
+    "version": "1.0.0",
     "description": "passage is a simple router middleware for nodejs",
     "homepage": "http://github.com/snd/passage",
     "author": {
@@ -24,11 +24,18 @@
         "node": ">=0.8.5"
     },
     "dependencies": {
-        "coffee-script": "1.4.0",
-        "url-pattern": "0.2.0",
-        "sequenz": "1.0.6"
+        "url-pattern": "0.2.2"
     },
     "devDependencies": {
-        "nodeunit": "0.7.4"
+        "coffee-script": "1.7.1",
+        "nodeunit": "0.8.4"
+    },
+    "main": "src/passage",
+    "scripts": {
+        "prepublish": "coffee --bare --compile --output src src/*.coffee",
+        "postpublish": "rm src/*.js",
+        "pretest": "coffee --bare --compile --output src src/*.coffee && coffee --bare --compile --output test test/*.coffee",
+        "posttest": "rm src/*.js && rm test/*.js",
+        "test": "nodeunit test/*.js"
     }
 }
