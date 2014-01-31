@@ -25,7 +25,7 @@
         "node": ">=0.8.5"
     },
     "dependencies": {
-        "url-pattern": "0.3.0"
+        "url-pattern": "0.3.1"
     },
     "devDependencies": {
         "coffee-script": "1.7.1",
