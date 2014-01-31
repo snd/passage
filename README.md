@@ -63,7 +63,7 @@ route2 = passage.post('/users/:userId', function(req, res, next, params) {
 });
 ```
 
-##### complex example
+### complex example
 
 the example uses [sequenz](https://github.com/snd/sequenz) to compose middleware (make a single middleware from multiple middlewares).
 
