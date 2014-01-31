@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/snd/passage.png)](https://travis-ci.org/snd/passage)
 
-passage is simple composable routing using middlewares for nodejs
+passage is simple composable routing with middleware for nodejs
 
 ### install
 
