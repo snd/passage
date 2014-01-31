@@ -2,6 +2,7 @@
     "name": "passage",
     "version": "1.0.0",
     "description": "passage is a simple router middleware for nodejs",
+    "keywords": ["connect", "middleware", "router"],
     "homepage": "http://github.com/snd/passage",
     "author": {
         "name": "Maximilian Krüger",
