@@ -65,7 +65,7 @@ route2 = passage.post('/users/:userId', function(req, res, next, params) {
 
 ### complex example
 
-the example uses [sequenz](https://github.com/snd/sequenz) to compose middleware (make a single middleware from multiple middlewares).
+the example uses [sequenz](https://github.com/snd/sequenz) to compose middleware (to make a single middleware from multiple middlewares).
 
 ```javascript
 var http = require('http');
@@ -74,38 +74,21 @@ var sequenz = require('sequenz');
 
 var routes = sequenz(
     passage.any('*', function(req, res, next) {
-        console.log(
-            'i got called for any method and any url before any following route'
-        );
+        console.log('i got called for any method and any url');
         next();
     }),
     passage.get('/', function(req, res, next) {
-        console.log(
-            'i got called for GET /'
-        );
+        console.log('i got called for GET /'
         res.end('hello');
     }),
     passage.any('/users*', function(req, res, next) {
-        console.log(
-            'i got called for any method on urls that start with /users'
-        );
-        next();
-    }),
-    passage.any('/users*', function(req, res, next) {
-        console.log(
-            'i got called for any method on urls that start with /users'
-        );
+        console.log('i got called for an url that starts with /users with any method');
         next();
     passage.get('/users/:userId/posts/:postId', function(req, res, next, params) {
-        console.log(
-            'i got called for any method on urls that start with /users'
-        );
+        console.log('i got called for GET /users/', params.userId, '/posts/', params.postId);
         next();
     }),
 );
-
-// routes is just a function (req, res, next) ->
-// which threads.
 
 server = http.createServer(routes);
 
