@@ -15,7 +15,7 @@ npm install passage
 put this line in the dependencies section of your `package.json`:
 
 ```
-"passage": "1.0.0"
+"passage": "1.0.1"
 ```
 
 then run:
