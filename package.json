@@ -1,42 +1,42 @@
 {
-    "name": "passage",
-    "version": "1.1.0",
-    "description": "passage is simple composable routing with middleware for nodejs",
-    "keywords": ["connect", "middleware", "router"],
-    "homepage": "http://github.com/snd/passage",
-    "author": {
-        "name": "Maximilian Krüger",
-        "email": "kruemaxi@gmail.com",
-        "url": "http://github.com/snd"
-    },
-    "bugs": {
-        "url": "http://github.com/snd/passage/issues",
-        "email": "kruemaxi@gmail.com"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/snd/passage.git"
-    },
-    "licenses": {
-        "type": "MIT",
-        "url": "git://github.com/snd/passage/LICENSE"
-    },
-    "engines": {
-        "node": ">=0.8.5"
-    },
-    "dependencies": {
-        "url-pattern": "0.4.0"
-    },
-    "devDependencies": {
-        "coffee-script": "1.7.1",
-        "nodeunit": "0.8.4"
-    },
-    "main": "src/passage",
-    "scripts": {
-        "prepublish": "coffee --bare --compile --output src src/*.coffee",
-        "postpublish": "rm src/*.js",
-        "pretest": "coffee --bare --compile --output src src/*.coffee && coffee --bare --compile --output test test/*.coffee",
-        "posttest": "rm src/*.js && rm test/*.js",
-        "test": "node_modules/nodeunit/bin/nodeunit test/*.js"
-    }
+  "name": "passage",
+  "version": "1.2.0",
+  "description": "passage is simple composable routing with middleware for nodejs",
+  "keywords": ["connect", "middleware", "router"],
+  "homepage": "http://github.com/snd/passage",
+  "author": {
+    "name": "Maximilian Krüger",
+    "email": "kruemaxi@gmail.com",
+    "url": "http://github.com/snd"
+  },
+  "bugs": {
+    "url": "http://github.com/snd/passage/issues",
+    "email": "kruemaxi@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/snd/passage.git"
+  },
+  "licenses": {
+    "type": "MIT",
+    "url": "git://github.com/snd/passage/LICENSE"
+  },
+  "engines": {
+    "node": ">=0.8.5"
+  },
+  "dependencies": {
+    "url-pattern": "0.5.0"
+  },
+  "devDependencies": {
+    "coffee-script": "1.7.1",
+    "nodeunit": "0.8.6"
+  },
+  "main": "src/passage",
+  "scripts": {
+    "prepublish": "coffee --bare --compile --output src src/*.coffee",
+    "postpublish": "rm src/*.js",
+    "pretest": "coffee --bare --compile --output src src/*.coffee && coffee --bare --compile --output test test/*.coffee",
+    "posttest": "rm src/*.js && rm test/*.js",
+    "test": "node_modules/nodeunit/bin/nodeunit test/*.js"
+  }
 }
