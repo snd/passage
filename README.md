@@ -57,6 +57,8 @@ server.listen(80);
 [sequenz](https://github.com/snd/sequenz) takes an array of middlewares
 and returns a single middleware that runs the middlewares in order.
 
+the first argument to the passage functions can by any [url-pattern](https://github.com/snd/url-pattern).
+
 ## vhost example
 
 ```javascript
