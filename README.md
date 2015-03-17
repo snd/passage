@@ -1,86 +1,14 @@
 # passage
 
-[![Build Status](https://travis-ci.org/snd/passage.png)](https://travis-ci.org/snd/passage)
+[![NPM Package](https://img.shields.io/npm/v/passage.svg?style=flat)](https://www.npmjs.org/package/passage)
+[![Build Status](https://travis-ci.org/snd/passage.svg?branch=master)](https://travis-ci.org/snd/passage/branches)
+[![Dependencies](https://david-dm.org/snd/passage.svg)](https://david-dm.org/snd/passage)
 
-passage is simple composable routing with middleware for nodejs
-
-- [install](#install)
-- [introduction](#introduction)
-- [simple routing example](#simple-routing-example)
-- [complex routing example](#complex-routing-example)
-- [vhost example](#vhost-example)
-- [license](#license-mit)
-
-### install
+passage is simple composable routing middleware for nodejs
 
 ```
 npm install passage
 ```
-
-**or**
-
-put this line in the dependencies section of your `package.json`:
-
-```
-"passage": "1.2.0"
-```
-
-then run:
-
-```
-npm install
-```
-
-### introduction
-
-a middleware is a function of three arguments:
-the [request object](http://nodejs.org/api/http.html#http_http_incomingmessage) `req` from the nodejs http server,
-the [response object](http://nodejs.org/api/http.html#http_class_http_serverresponse)`res` from the nodejs http server
-and a callback `next`.
-middleware handles the request and usually modifies the response.
-if a middleware doesn't end the request it should call `next` to give control
-to the next middleware.
-
-the passage module exports an object containing the functions `get`, `post`, `put`, `delete` and `any`:
-each of these functions is called with an [url-pattern](https://github.com/snd/url-pattern) (either a string or a regex)
-and a middleware.
-they then return a new middleware.
-the returned middleware will call the argument middleware when the method matches
-('get' for `get`, 'post' for `post`, ..., any method for `any`) and the url matches the url-pattern.
-the argument middleware is called with the params that were parsed from the url
-as an additional fourth argument.
-if the method or url don't match up the returned middleware will just call `next`
-to give control to the next middleware.
-
-the passage module also exports the function `vhost`,
-which is called with an [url-pattern](https://github.com/snd/url-pattern) (either a string or a regex)
-and a middleware and returns a new middleware.
-the returned middleware will call the argument middleware when the
-host header matches the pattern.
-if the host header doesn't match the returned middleware will just call `next`
-to give control to the next middleware.
-
-### simple routing example
-
-```javascript
-var passage = require('passage');
-
-route1 = passage.get('/test', function(req, res, next) {
-  console.log(
-    'i got called for GET /test'
-  );
-});
-
-route2 = passage.post('/users/:userId', function(req, res, next, params) {
-  console.log(
-    'i got called for POST /users/' + params.userId
-  );
-});
-```
-
-### complex routing example
-
-the example uses [sequenz](https://github.com/snd/sequenz) to compose middleware (to make a single middleware from multiple middlewares).
 
 ```javascript
 var http = require('http');
@@ -103,6 +31,22 @@ var routes = sequenz(
     console.log('i got called for GET /users/', params.userId, '/posts/', params.postId);
     next();
   }),
+  passage.post('/users/:userId/posts', function(req, res, next, params) {
+    console.log('i got called for POST /users/', params.userId, '/posts/');
+    next();
+  }),
+  passage.put('/users/:userId/posts/:postId', function(req, res, next, params) {
+    console.log('i got called for PUT /users/', params.userId, '/posts/', params.postId);
+    next();
+  }),
+  passage.patch('/users/:userId/posts/:postId', function(req, res, next, params) {
+    console.log('i got called for PATCH /users/', params.userId, '/posts/', params.postId);
+    next();
+  }),
+  passage.delete('/users/:id', function(req, res, next, params) {
+    console.log('i got called for DELETE /users/', params.id);
+    next();
+  })
 );
 
 server = http.createServer(routes);
@@ -110,9 +54,10 @@ server = http.createServer(routes);
 server.listen(80);
 ```
 
-### vhost example
+[sequenz](https://github.com/snd/sequenz) takes an array of middlewares
+and returns a single middleware that runs the middlewares in order.
 
-the example uses [sequenz](https://github.com/snd/sequenz) to compose middleware (to make a single middleware from multiple middlewares).
+## vhost example
 
 ```javascript
 var http = require('http');
@@ -133,4 +78,4 @@ server = http.createServer(routes);
 server.listen(80);
 ```
 
-### license: MIT
+## [license: MIT](LICENSE)
