@@ -37,3 +37,4 @@ module.exports =
   post: router (req) -> req.method.toUpperCase() is 'POST'
   put: router (req) -> req.method.toUpperCase() is 'PUT'
   delete: router (req) -> req.method.toUpperCase() is 'DELETE'
+  patch: router (req) -> req.method.toUpperCase() is 'PATCH'

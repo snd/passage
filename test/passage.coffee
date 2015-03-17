@@ -54,6 +54,14 @@ module.exports =
       res = {}
       middleware req, res, -> test.fail()
 
+    'PATCH': (test) ->
+      middleware = passage.patch '/users/:id', (req, res, next, params) ->
+        test.deepEqual params, {id: '8'}
+        test.done()
+      req = {url: '/users/8', method: 'patch'}
+      res = {}
+      middleware req, res, -> test.fail()
+
   'vhost':
 
     'match': (test) ->
