@@ -21,31 +21,25 @@ var routes = sequenz(
     next();
   }),
   passage.get('/', function(req, res, next) {
-    console.log('i got called for GET /'
-    res.end('hello');
+    res.end('i got called for GET /');
   }),
   passage.any('/users*', function(req, res, next) {
     console.log('i got called for an url that starts with /users with any method');
     next();
   passage.get('/users/:userId/posts/:postId', function(req, res, next, params) {
-    console.log('i got called for GET /users/', params.userId, '/posts/', params.postId);
-    next();
+    res.end('i got called for GET /users/' + params.userId + '/posts/' + params.postId);
   }),
   passage.post('/users/:userId/posts', function(req, res, next, params) {
-    console.log('i got called for POST /users/', params.userId, '/posts/');
-    next();
+    res.end('i got called for POST /users/' + params.userId + '/posts/');
   }),
   passage.put('/users/:userId/posts/:postId', function(req, res, next, params) {
-    console.log('i got called for PUT /users/', params.userId, '/posts/', params.postId);
-    next();
+    res.end('i got called for PUT /users/' + params.userId + '/posts/' + params.postId);
   }),
   passage.patch('/users/:userId/posts/:postId', function(req, res, next, params) {
-    console.log('i got called for PATCH /users/', params.userId, '/posts/', params.postId);
-    next();
+    res.end('i got called for PATCH /users/' + params.userId + '/posts/' + params.postId);
   }),
   passage.delete('/users/:id', function(req, res, next, params) {
-    console.log('i got called for DELETE /users/', params.id);
-    next();
+    res.end('i got called for DELETE /users/' + params.id);
   })
 );
 
