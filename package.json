@@ -22,14 +22,14 @@
     "url": "git://github.com/snd/passage/LICENSE"
   },
   "engines": {
-    "node": ">=0.8.5"
+    "node": ">=0.10.0"
   },
   "dependencies": {
-    "url-pattern": "0.5.0"
+    "url-pattern": "0.6.0"
   },
   "devDependencies": {
-    "coffee-script": "1.7.1",
-    "nodeunit": "0.8.6"
+    "coffee-script": "1.9.1",
+    "nodeunit": "0.9.1"
   },
   "main": "src/passage",
   "scripts": {
