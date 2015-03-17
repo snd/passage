@@ -15,7 +15,7 @@ var http = require('http');
 var passage = require('passage');
 var sequenz = require('sequenz');
 
-var routes = sequenz(
+var server = http.createServer(sequenz(
   passage.any('*', function(req, res, next) {
     console.log('i got called for any method and any url');
     next();
@@ -41,9 +41,7 @@ var routes = sequenz(
   passage.delete('/users/:id', function(req, res, next, params) {
     res.end('i got called for DELETE /users/' + params.id);
   })
-);
-
-server = http.createServer(routes);
+));
 
 server.listen(80);
 ```
