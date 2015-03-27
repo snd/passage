@@ -1,8 +1,8 @@
-{newPattern} = require 'url-pattern'
+Pattern = require 'url-pattern'
 
 vhost = (pattern, handler) ->
   separator = '.'
-  hostPattern = newPattern pattern, separator
+  hostPattern = new Pattern pattern, separator
 
   (req, res, next) ->
     match = hostPattern.match req.headers.host
@@ -14,7 +14,7 @@ vhost = (pattern, handler) ->
 
 router = (predicate) ->
   (pattern, handler) ->
-    urlPattern = newPattern pattern
+    urlPattern = new Pattern pattern
 
     (req, res, next) ->
       unless predicate req
