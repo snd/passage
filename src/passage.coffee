@@ -1,8 +1,7 @@
 Pattern = require 'url-pattern'
 
 vhost = (pattern, handler) ->
-  separator = '.'
-  hostPattern = new Pattern pattern, separator
+  hostPattern = new Pattern pattern
 
   (req, res, next) ->
     match = hostPattern.match req.headers.host
