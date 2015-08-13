@@ -1,3 +1,5 @@
+UrlPattern = require 'url-pattern'
+
 passage = require '../src/passage'
 
 module.exports =
@@ -54,6 +56,30 @@ module.exports =
       res = {}
       middleware req, res, -> test.fail()
 
+    'POST': (test) ->
+      middleware = passage.post '/users/:id', (req, res, next, params) ->
+        test.deepEqual params, {id: '8'}
+        test.done()
+      req = {url: '/users/8', method: 'post'}
+      res = {}
+      middleware req, res, -> test.fail()
+
+    'PUT': (test) ->
+      middleware = passage.put '/users/:id', (req, res, next, params) ->
+        test.deepEqual params, {id: '8'}
+        test.done()
+      req = {url: '/users/8', method: 'put'}
+      res = {}
+      middleware req, res, -> test.fail()
+
+    'DELETE': (test) ->
+      middleware = passage.delete '/users/:id', (req, res, next, params) ->
+        test.deepEqual params, {id: '8'}
+        test.done()
+      req = {url: '/users/8', method: 'delete'}
+      res = {}
+      middleware req, res, -> test.fail()
+
     'PATCH': (test) ->
       middleware = passage.patch '/users/:id', (req, res, next, params) ->
         test.deepEqual params, {id: '8'}
@@ -61,6 +87,37 @@ module.exports =
       req = {url: '/users/8', method: 'patch'}
       res = {}
       middleware req, res, -> test.fail()
+
+    'UrlPattern as argument': (test) ->
+      pattern = new UrlPattern '/users/:id'
+      middleware = passage.get pattern, (req, res, next, params) ->
+        test.deepEqual params, {id: '8'}
+        test.done()
+      req = {url: '/users/8', method: 'get'}
+      res = {}
+      middleware req, res, -> test.fail()
+
+    'custom matcher object': (test) ->
+      test.expect 1
+      pattern = new UrlPattern '/language/:slug'
+      matcher =
+        match: (url) ->
+         match = pattern.match url
+         if match? and match.slug in ['es', 'fr']
+           return match
+
+      middleware = passage.get matcher, (req, res, next, params) ->
+        test.deepEqual params, {slug: 'es'}
+      req = {url: '/language/es', method: 'get'}
+      res = {}
+      middleware req, res, -> test.fail()
+
+      middleware = passage.get matcher, (req, res, next, params) ->
+        test.fail()
+      req = {url: '/language/uk', method: 'get'}
+      res = {}
+      middleware req, res, ->
+        test.done()
 
   'vhost':
 
