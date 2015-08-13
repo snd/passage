@@ -1,7 +1,7 @@
-Pattern = require 'url-pattern'
+UrlPattern = require 'url-pattern'
 
 vhost = (pattern, handler) ->
-  hostPattern = new Pattern pattern
+  hostPattern = new UrlPattern pattern
 
   (req, res, next) ->
     match = hostPattern.match req.headers.host
@@ -12,8 +12,9 @@ vhost = (pattern, handler) ->
     handler req, res, next, match
 
 router = (predicate) ->
-  (pattern, handler) ->
-    urlPattern = new Pattern pattern
+  (matcher, handler) ->
+    unless matcher is Object(matcher) and matcher.match?
+      matcher = new UrlPattern matcher
 
     (req, res, next) ->
       unless predicate req
@@ -21,7 +22,7 @@ router = (predicate) ->
 
       urlWithoutQuerystring = req.url.split('?')[0]
 
-      match = urlPattern.match urlWithoutQuerystring
+      match = matcher.match urlWithoutQuerystring
 
       unless match
         return next()
