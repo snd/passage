@@ -36,13 +36,16 @@
   },
   "devDependencies": {
     "coffee-script": "1.9.3",
-    "nodeunit": "0.9.1"
+    "tape": "4.2.0",
+    "coffeetape": "1.0.1",
+    "istanbul": "0.3.18"
   },
   "scripts": {
     "compile": "node_modules/coffee-script/bin/coffee --bare --compile --output lib src",
     "prepublish": "npm run compile",
     "pretest": "npm run compile",
-    "test": "node_modules/nodeunit/bin/nodeunit test/*.coffee"
+    "test": "node_modules/nodeunit/bin/nodeunit test/*.coffee",
+    "test": "istanbul cover -x test coffeetape test/*"
   },
   "main": "lib/passage"
 }
