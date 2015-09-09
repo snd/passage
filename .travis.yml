@@ -6,6 +6,7 @@ node_js:
   - "4.0"
 script: npm run $NPM_COMMAND
 sudo: false
+env:
   matrix:
     - NPM_COMMAND=test
     - NPM_COMMAND=test-with-coverage
