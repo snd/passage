@@ -1,6 +1,6 @@
 {
   "name": "passage",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "simple composable routing middleware",
   "keywords": [
     "connect",
