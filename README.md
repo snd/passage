@@ -2,10 +2,10 @@
 
 [![NPM Package](https://img.shields.io/npm/v/passage.svg?style=flat)](https://www.npmjs.org/package/passage)
 [![Build Status](https://travis-ci.org/snd/passage.svg?branch=master)](https://travis-ci.org/snd/passage/branches)
-[![coverage-100%](http://img.shields.io/badge/coverage-100%-brightgreen.svg?style=flat)](https://rawgit.com/snd/passage/master/coverage/lcov-report/lib/passage.js.html)
+[![codecov.io](http://codecov.io/github/snd/passage/coverage.svg?branch=master)](http://codecov.io/github/snd/passage?branch=master)
 [![Dependencies](https://david-dm.org/snd/passage.svg)](https://david-dm.org/snd/passage)
 
-> simple composable routing middleware for nodejs
+**simple composable routing middleware for nodejs**
 
 ```
 npm install passage
