@@ -32,20 +32,21 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
-    "url-pattern": "0.10.0"
+    "url-pattern": "0.10.2"
   },
   "devDependencies": {
-    "coffee-script": "1.9.3",
+    "codecov.io": "0.1.6",
+    "coffee-script": "1.10.0",
     "tape": "4.2.0",
     "coffeetape": "1.0.1",
-    "istanbul": "0.3.18"
+    "istanbul": "0.3.19"
   },
   "scripts": {
     "compile": "node_modules/coffee-script/bin/coffee --bare --compile --output lib src",
     "prepublish": "npm run compile",
     "pretest": "npm run compile",
-    "test": "node_modules/nodeunit/bin/nodeunit test/*.coffee",
-    "test": "istanbul cover -x test coffeetape test/*"
+    "test": "coffeetape test/*",
+    "test-with-coverage": "istanbul cover coffeetape test/* && cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js"
   },
   "main": "lib/passage"
 }
