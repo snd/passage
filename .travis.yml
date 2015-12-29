@@ -13,12 +13,12 @@ env:
 matrix:
   exclude:
     # don't collect code coverage more than once
+    - node_js: "0.12"
+      env: NPM_COMMAND=test-with-coverage
     - node_js: "iojs-3"
       env: NPM_COMMAND=test-with-coverage
     - node_js: "4"
       env: NPM_COMMAND=test-with-coverage
+    # already tested with coverage. no need to test again without
     - node_js: "5"
-      env: NPM_COMMAND=test-with-coverage
-    # don't test 0.12 more than once
-    - node_js: "0.12"
       env: NPM_COMMAND=test
