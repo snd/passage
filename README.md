@@ -73,4 +73,6 @@ server = http.createServer(routes);
 server.listen(80);
 ```
 
-## [license: MIT](LICENSE)
+### [contributing](contributing.md)
+
+### [license: MIT](LICENSE)
