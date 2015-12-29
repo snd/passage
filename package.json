@@ -24,10 +24,7 @@
     "type": "git",
     "url": "git://github.com/snd/passage.git"
   },
-  "licenses": {
-    "type": "MIT",
-    "url": "git://github.com/snd/passage/LICENSE"
-  },
+  "license": "MIT",
   "engines": {
     "node": ">=0.10.0"
   },
